@@ -1,0 +1,12 @@
+{
+    "settings": {
+      "import/resolver": {
+        "babel-module": {
+          "alias": {
+            "~mobile": "./src",
+            "~assets": "./assets"
+          }
+        }
+      }
+    }
+}
