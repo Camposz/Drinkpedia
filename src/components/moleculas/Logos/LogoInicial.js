@@ -1,14 +1,13 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { View, StyleSheet } from "react-native";
 import TituloApp from "~/components/atomos/Textos/TituloApp";
 import Drink from "~/components/atomos/Icones/Drink";
-import { height, width } from "../../globais";
 
 const LogoInicial = () => {
   return (
-    <View style={styles.bg}>
+    <View>
       <Drink />
-      <TituloApp titulo={"Drinkpedia"} />
+      <TituloApp estilo={styles.txtStyle} titulo={"Drinkpedia"} />
     </View>
   );
 };
@@ -16,7 +15,7 @@ const LogoInicial = () => {
 export default LogoInicial;
 
 const styles = StyleSheet.create({
-    bg:{
-        height: height * 0.2
-    }
+  txtStyle: {
+    top: -50,
+  },
 });

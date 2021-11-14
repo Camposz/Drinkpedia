@@ -1,15 +1,17 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text } from "react-native";
+import { fontScale } from "~/components/globais";
 
-const TituloApp = ({ titulo }) => {
-  return <Text style={styles.txt}>{titulo}</Text>;
+const TituloCard = ({ titulo, style }) => {
+  return <Text style={[styles.txt, style]}>{titulo}</Text>;
 };
 
-export default TituloApp;
+export default TituloCard;
 
 const styles = StyleSheet.create({
   txt: {
-    fontSize: 15,
+    fontSize: 15 / fontScale,
     fontFamily: "sans-serif-thin",
+    textAlign: "center",
   },
 });
