@@ -1,6 +1,5 @@
 import React from "react";
-import { FlatList, StyleSheet, TouchableOpacity, View } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
+import { FlatList, StyleSheet, View } from "react-native";
 import LogoInicial from "~/components/moleculas/Logos/LogoInicial";
 import CardOpcao from "~/components/moleculas/Cards/CardOpcao";
 import MainBackground from "~/components/atomos/Backgrounds/MainBackground";
@@ -28,7 +27,7 @@ const data = [
   },
 ];
 
-const Home = () => {
+const Home = ({navigation}) => {
   return (
     <MainBackground
       content={
@@ -39,7 +38,7 @@ const Home = () => {
             keyExtractor={(item) => item.id}
             numColumns={2}
             renderItem={({ item }) => {
-              return <CardOpcao img={item.img} txt={item.txt} />;
+              return <CardOpcao img={item.img} txt={item.txt}onPress={()=> navigation.navigate("PesquisaDrinks")}/>;
             }}
           />
         </View>

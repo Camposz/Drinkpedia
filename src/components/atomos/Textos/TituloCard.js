@@ -10,7 +10,7 @@ export default TituloCard;
 
 const styles = StyleSheet.create({
   txt: {
-    fontSize: 15 / fontScale,
+    fontSize: 18 / fontScale,
     fontFamily: "sans-serif-thin",
     textAlign: "center",
   },

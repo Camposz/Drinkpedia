@@ -1,23 +1,36 @@
 import React, { useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, FlatList } from "react-native";
+import { requestPesquisaDrink } from "~/api/PesquisaDrinkService";
 import MainBackground from "~/components/atomos/Backgrounds/MainBackground";
 import SearchBarPadrao from "~/components/atomos/SearchBars/SearchBarPadrao";
-import { width } from "~/components/globais";
-import prodEnvVariable from "~/config/env";
+import CardOpcaoPesquisa from "~/components/moleculas/Cards/CardOpcaoPesquisa";
 
-const requestApi = () => {};
+const passarDados = async (setResultadoApi, searchQuery) => {
+  var resultado = await requestPesquisaDrink(searchQuery);
+  setResultadoApi(resultado.drinks);
+};
 
 const PesquisaDrinks = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [resultadoApi, setResultadoApi] = useState({});
 
   return (
     <MainBackground
+      estilo={styles.pageBg}
       content={
-        <View>
+        <View style={styles.view}>
           <SearchBarPadrao
             searchQuery={searchQuery}
             setSearchQuery={setSearchQuery}
-            onChangeText={console.log(prodEnvVariable)}
+            onChangeText={passarDados(setResultadoApi, searchQuery)}
+          />
+          <FlatList
+            data={resultadoApi}
+            keyExtractor={(item) => item.idDrink}
+            renderItem={({ item }) => {
+              return <CardOpcaoPesquisa data={item}/>;
+            }}
+            showsVerticalScrollIndicator={false}
           />
         </View>
       }
@@ -28,12 +41,12 @@ const PesquisaDrinks = () => {
 export default PesquisaDrinks;
 
 const styles = StyleSheet.create({
-  searchBar: {
-    backgroundColor: "transparent",
-    elevation: 0,
+  view: {
+    alignItems: "center",
+    flex: 0.95,
   },
-  searchBarView: {
-    borderRadius: 25,
-    width: width / 1.2,
+
+  pageBg: {
+    justifyContent: "flex-end",
   },
 });

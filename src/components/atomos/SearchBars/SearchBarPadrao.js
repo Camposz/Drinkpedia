@@ -1,27 +1,25 @@
-import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
 import { StyleSheet } from "react-native";
 import { Searchbar } from "react-native-paper";
-import { width } from "~/components/globais";
+import ViewBackground from "../Backgrounds/ViewBackground";
 
 const SearchBarPadrao = ({ searchQuery, setSearchQuery, onChangeText }) => {
-  const onChangeSearch = (query) => {
+  const onChangeSearch = async (query) => {
     setSearchQuery(query);
     onChangeText;
   };
 
   return (
-    <LinearGradient
-      colors={["#1ea869", "#0781ad"]}
-      style={styles.searchBarView}
-    >
-      <Searchbar
-        placeholder="Pesquise um Drink  🍸"
-        onChangeText={onChangeSearch}
-        value={searchQuery}
-        style={styles.searchBar}
-      />
-    </LinearGradient>
+    <ViewBackground
+      conteudo={
+        <Searchbar
+          placeholder="Pesquise um Drink  🍸"
+          onChangeText={onChangeSearch}
+          value={searchQuery}
+          style={styles.searchBar}
+        />
+      }
+    />
   );
 };
 
@@ -31,9 +29,5 @@ const styles = StyleSheet.create({
   searchBar: {
     backgroundColor: "transparent",
     elevation: 0,
-  },
-  searchBarView: {
-    borderRadius: 25,
-    width: width / 1.2,
   },
 });
