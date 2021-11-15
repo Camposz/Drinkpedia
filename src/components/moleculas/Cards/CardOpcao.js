@@ -5,9 +5,9 @@ import CardIcons from "~/components/atomos/Icones/CardIcons";
 import TituloCard from "~/components/atomos/Textos/TituloCard";
 import { width } from "~/components/globais";
 
-const CardOpcao = ({ img, txt }) => {
+const CardOpcao = ({ img, txt, onPress }) => {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={onPress}>
       <LinearGradient
         colors={["#1ea869", "#0781ad"]}
         style={styles.cardOpcaoBg}

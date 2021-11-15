@@ -9,6 +9,13 @@ module.exports = function (api) {
           rootPathSuffix: "src",
         },
       ],
+      [
+        "module:react-native-dotenv",
+        {
+          moduleName: "@env",
+          path: ".env",
+        },
+      ],
     ],
   };
 };

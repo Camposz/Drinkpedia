@@ -3,6 +3,7 @@ import { FlatList, StyleSheet, TouchableOpacity, View } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import LogoInicial from "~/components/moleculas/Logos/LogoInicial";
 import CardOpcao from "~/components/moleculas/Cards/CardOpcao";
+import MainBackground from "~/components/atomos/Backgrounds/MainBackground";
 
 const data = [
   {
@@ -29,29 +30,27 @@ const data = [
 
 const Home = () => {
   return (
-    <LinearGradient colors={["#08AEEA", "#2AF598"]} style={styles.background}>
-      <View style={styles.homeView}>
-        <LogoInicial />
-        <FlatList
-          data={data}
-          keyExtractor={(item) => item.id}
-          numColumns={2}
-          renderItem={({ item }) => {
-            return <CardOpcao img={item.img} txt={item.txt} />;
-          }}
-        />
-      </View>
-    </LinearGradient>
+    <MainBackground
+      content={
+        <View style={styles.homeView}>
+          <LogoInicial />
+          <FlatList
+            data={data}
+            keyExtractor={(item) => item.id}
+            numColumns={2}
+            renderItem={({ item }) => {
+              return <CardOpcao img={item.img} txt={item.txt} />;
+            }}
+          />
+        </View>
+      }
+    />
   );
 };
 
 export default Home;
 
 const styles = StyleSheet.create({
-  background: {
-    flex: 1,
-    justifyContent: "center",
-  },
   homeView: {
     alignItems: "center",
   },
