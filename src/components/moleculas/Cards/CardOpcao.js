@@ -2,18 +2,18 @@ import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
 import { StyleSheet, TouchableOpacity } from "react-native";
 import CardIcons from "~/components/atomos/Icones/CardIcons";
-import TituloCard from "~/components/atomos/Textos/TituloCard";
 import { width } from "~/components/globais";
+import { Texto } from "~/components/tagsEstilizadas";
 
-const CardOpcao = ({ img, txt }) => {
+const CardOpcao = ({ img, txt, onPress }) => {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={onPress}>
       <LinearGradient
         colors={["#1ea869", "#0781ad"]}
         style={styles.cardOpcaoBg}
       >
         <CardIcons img={img} />
-        <TituloCard titulo={txt} style={styles.txtStyle} cor={"white"} />
+        <Texto>{txt}</Texto>
       </LinearGradient>
     </TouchableOpacity>
   );

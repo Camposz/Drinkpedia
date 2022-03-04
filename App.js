@@ -1,5 +1,5 @@
 import React from "react";
-import Home from "./src/telas/Home";
+import { Home, ListaDrinks } from "./src/telas";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
@@ -12,6 +12,11 @@ export default function App() {
         <Stack.Screen
           name="Home"
           component={Home}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="ListaDrinks"
+          component={ListaDrinks}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

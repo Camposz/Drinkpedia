@@ -18,6 +18,7 @@ export default Drink;
 
 const styles = StyleSheet.create({
   drinkLogo: {
+    top: 20,
     width: width / 2,
     height: height / 4,
   },

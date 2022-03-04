@@ -1,21 +1,16 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
-import TituloApp from "~/components/atomos/Textos/TituloApp";
+import { View } from "react-native";
 import Drink from "~/components/atomos/Icones/Drink";
+import { Titulo } from "~/components/tagsEstilizadas";
 
 const LogoInicial = () => {
   return (
-    <View>
+    <View style={{alignItems: `center`, top: -50}}>
       <Drink />
-      <TituloApp estilo={styles.txtStyle} titulo={"Drinkpedia"} />
+      <Titulo>Drinkpedia</Titulo>
     </View>
   );
 };
 
 export default LogoInicial;
 
-const styles = StyleSheet.create({
-  txtStyle: {
-    top: -50,
-  },
-});
