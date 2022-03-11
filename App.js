@@ -1,5 +1,5 @@
 import React from "react";
-import { Home, ListaDrinks } from "./src/telas";
+import { Home, ListaDrinks, DetalhaDrinks } from "./src/telas";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
@@ -17,6 +17,11 @@ export default function App() {
         <Stack.Screen
           name="ListaDrinks"
           component={ListaDrinks}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="DetalhaDrinks"
+          component={DetalhaDrinks}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

@@ -18,7 +18,7 @@ const CardGradient = styled(LinearGradient).attrs({
   padding: 10px;
   margin-bottom: 10px;
   margin-top: 10px;
-  align-items: center
+  align-items: center;
 `;
 
 const Titulo = styled.Text`
@@ -33,7 +33,7 @@ const SubTitulo = styled.Text`
   color: azure;
 `;
 const Texto = styled.Text`
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 100;
   color: azure;
 `;

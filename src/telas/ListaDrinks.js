@@ -7,13 +7,12 @@ import {
 } from "~/components/tagsEstilizadas";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Searchbar } from "react-native-paper";
-import { URL_API } from "@env";
+import { URL_API_DRINK_NAME } from "@env";
 import axios from "axios";
 import {
   FlatList,
   Image,
   StyleSheet,
-  Text,
   TouchableOpacity,
   View,
 } from "react-native";
@@ -21,9 +20,9 @@ import { height, width } from "~/components/globais";
 
 const circulo = width / 4;
 
-const CardDrinks = ({ imagem, titulo, categoria }) => {
+const CardDrinks = ({ imagem, titulo, categoria, onPress }) => {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={onPress}>
       <CardGradient>
         <Image
           style={styles.img}
@@ -41,12 +40,12 @@ const CardDrinks = ({ imagem, titulo, categoria }) => {
   );
 };
 
-const ListaDrinks = () => {
+const ListaDrinks = ({ navigation: { navigate } }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    axios.get(`${URL_API}` + searchQuery).then((res) => {
+    axios.get(`${URL_API_DRINK_NAME}` + searchQuery).then((res) => {
       setData(res.data.drinks);
     });
   }, [searchQuery]);
@@ -66,6 +65,7 @@ const ListaDrinks = () => {
           keyExtractor={(_, index) => index}
           renderItem={({ item }) => (
             <CardDrinks
+              onPress={() => navigate("DetalhaDrinks", item.idDrink)}
               imagem={item.strDrinkThumb}
               titulo={item.strDrink}
               categoria={item.strAlcoholic}
