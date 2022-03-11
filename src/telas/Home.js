@@ -9,7 +9,7 @@ const data = [
   {
     id: 1,
     img: require("~/assets/Icones/drink.png"),
-    txt: "Pesquisar Drinks",
+    txt: "Search Drinks",
     rota: "ListaDrinks",
   },
 ];

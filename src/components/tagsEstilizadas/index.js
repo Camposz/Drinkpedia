@@ -2,15 +2,16 @@ import { LinearGradient } from "expo-linear-gradient";
 import styled from "styled-components/native";
 
 const Fundo = styled(LinearGradient).attrs({
-  colors: ["#08AEEA", "#2AF598"],
+  colors: ["#2F0743", "#302b63", "#2F0743"],
 })`
   display: flex;
   flex: 1;
   justify-content: center;
+  opacity: 1;
 `;
 
 const CardGradient = styled(LinearGradient).attrs({
-  colors: ["#2AF598", "#08AEEA"],
+  colors: ["#2F0743", "#2F0743"],
 })`
   display: flex;
   flex-direction: row;
